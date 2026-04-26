@@ -106,7 +106,6 @@ TRANSLATIONS = {
 }
 from streamlit_js_eval import get_geolocation
 from streamlit_mic_recorder import mic_recorder
-import google.generativeai as genai
 
 # --- GLOBAL SETTINGS ---
 MODEL_PATH = 'best_plant_disease_model.keras'
