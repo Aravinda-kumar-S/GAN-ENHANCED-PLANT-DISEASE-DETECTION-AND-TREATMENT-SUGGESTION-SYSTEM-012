@@ -13,7 +13,97 @@ from utils import (get_ai_explanation, get_ai_chat_response, get_weather_data,
                    get_recommendations, get_nearby_vendors, get_user_location,
                    get_gov_links, get_state_from_coords, get_climate_zone, speak_text)
 from explainability import make_gradcam_heatmap, save_and_display_gradcam, get_last_conv_layer_name
-from translations import TRANSLATIONS
+# --- TRANSLATIONS (Integrated) ---
+TRANSLATIONS = {
+    "English": {
+        "title": "PlantVision AI",
+        "home": "Home",
+        "disease_diagnosis": "Disease Diagnosis",
+        "ai_chat_adviser": "AI Chat Adviser",
+        "gov_schemes": "Government Schemes",
+        "nearby_vendors": "Nearby Vendors",
+        "weather_forecast": "Weather Forecast",
+        "market_prices": "Market Prices",
+        "select_lang": "Choose Language",
+        "welcome": "Welcome to PlantVision AI",
+        "tagline": "Empowering Farmers with Explainable AI",
+        "analyze": "Analyze Plant Health",
+        "upload": "Upload a leaf image or use the camera for real-time diagnosis.",
+        "input_method": "Select Input Method",
+        "upload_img": "Upload Image",
+        "live_cam": "Live Camera",
+        "weather_alert": "Weather Alert",
+        "nearby_stores": "Nearby Agricultural Stores",
+        "agri_news": "Latest Agriculture News",
+        "gov_links": "Government Resources & Schemes",
+    },
+    "Hindi": {
+        "title": "प्लांटविजन एआई",
+        "home": "होम",
+        "disease_diagnosis": "रोग निदान",
+        "ai_chat_adviser": "एआई चैट सलाहकार",
+        "gov_schemes": "सरकारी योजनाएं",
+        "nearby_vendors": "नजदीकी विक्रेता",
+        "weather_forecast": "मौसम का पूर्वानुमान",
+        "market_prices": "बाजार भाव",
+        "select_lang": "भाषा चुनें",
+        "welcome": "प्लांटविजन एआई में आपका स्वागत है",
+        "tagline": "व्याख्यात्मक एआई के साथ किसानों को सशक्त बनाना",
+        "analyze": "पौधों के स्वास्थ्य का विश्लेषण करें",
+        "upload": "वास्तविक समय के निदान के लिए पत्ती की छवि अपलोड करें या कैमरे का उपयोग करें।",
+        "input_method": "इनपुट विधि चुनें",
+        "upload_img": "छवि अपलोड करें",
+        "live_cam": "लाइవ कैमरा",
+        "weather_alert": "मौसम की चेतावनी",
+        "nearby_stores": "नजदीकी कृषि स्टोर",
+        "agri_news": "नवीनतम कृषि समाचार",
+        "gov_links": "सरकारी संसाधन और योजनाएं",
+    },
+    "Tamil": {
+        "title": "பிளான்ட்விஷன் ஏஐ",
+        "home": "முகப்பு",
+        "disease_diagnosis": "நோய் கண்டறிதல்",
+        "ai_chat_adviser": "ஏஐ அரட்டை ஆலோசகர்",
+        "gov_schemes": "அரசு திட்டங்கள்",
+        "nearby_vendors": "அருகிலுள்ள விற்பனையாளர்கள்",
+        "weather_forecast": "வானிலை முன்னறிவிப்பு",
+        "market_prices": "சந்தை விலைகள்",
+        "select_lang": "மொழியைத் தேர்ந்தெடுக்கவும்",
+        "welcome": "பிளான்ட்விஷன் ஏஐ-க்கு வரவேற்கிறோம்",
+        "tagline": "விளக்கக்கூடிய ஏஐ மூலம் விவசாயிகளுக்கு அதிகாரம் அளித்தல்",
+        "analyze": "தாவர ஆரோக்கியத்தை பகுப்பாய்வு செய்யுங்கள்",
+        "upload": "உண்மையான நேர நோயறிதலுக்கு இலை படத்தை பதிవేற்றவும் அல்லது கேமராவைப் பயன்படுத்தவும்.",
+        "input_method": "உள்ளீட்டு முறையைத் தேர்ந்தெடுக்கவும்",
+        "upload_img": "படத்தைப் பதிవేற்றவும்",
+        "live_cam": "நேரடி கேமరా",
+        "weather_alert": "வானிலை எச்சரிக்கை",
+        "nearby_stores": "அருகிலுள்ள விவசாய கடைகள்",
+        "agri_news": "சமீபத்திய விவசாய செய்திகள்",
+        "gov_links": "அரசு வளங்கள் மற்றும் திட்டங்கள்",
+    },
+    "Telugu": {
+        "title": "ప్లాంట్ విజన్ AI",
+        "home": "హోమ్",
+        "disease_diagnosis": "వ్యాధి నిర్ధారణ",
+        "ai_chat_adviser": "AI చాట్ సలహాదారు",
+        "gov_schemes": "ప్రభుత్వ పథకాలు",
+        "nearby_vendors": "సమీప విక్రేతలు",
+        "weather_forecast": "వాతావరణ సూచన",
+        "market_prices": "మార్కెట్ ధరలు",
+        "select_lang": "భాషను ఎంచుకోండి",
+        "welcome": "ప్లాంట్ విజన్ AI కి స్వాగతం",
+        "tagline": "వివరించదగిన AI తో రైతులకు సాధికారత",
+        "analyze": "మొక్కల ఆరోగ్యాన్ని విశ్లేషించండి",
+        "upload": "నిజ-సమయ నిర్ధారణ కోసం ఆకు చిత్రాన్ని అప్‌లోడ్ చేయండి లేదా కెమెరాను ఉపయోగించండి.",
+        "input_method": "ఇన్‌పుట్ పద్ధతిని ఎంచుకోండి",
+        "upload_img": "చిత్రాన్ని అప్‌లోడ్ చేయండి",
+        "live_cam": "లైవ్ కెమెరా",
+        "weather_alert": "వాతావరణ హెచ్చరిక",
+        "nearby_stores": "సమీప వ్యవసాయ దుకాణాలు",
+        "agri_news": "తాజా వ్యవసాయ వార్తలు",
+        "gov_links": "ప్రభుత్వ వనరులు మరియు పథకాలు",
+    }
+}
 from streamlit_js_eval import get_geolocation
 from streamlit_mic_recorder import mic_recorder
 import google.generativeai as genai
@@ -169,7 +259,7 @@ def home_page():
     with col3:
         st.markdown(f"<div class='stCard'><h3>📜 {T['gov_schemes']}</h3><p>Access location-filtered subsidies.</p></div>", unsafe_allow_html=True)
 
-    st.image("https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=1000", use_column_width=True)
+    st.image("https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=1000", use_container_width=True)
 
 def disease_diagnosis_page():
     st.markdown(f"<h1 class='main-header'>{T['disease_diagnosis']}</h1>", unsafe_allow_html=True)
@@ -182,7 +272,7 @@ def disease_diagnosis_page():
         
         if img_file:
             image = Image.open(img_file)
-            st.image(image, use_column_width=True)
+            st.image(image, use_container_width=True)
             if st.button(T['analyze']):
                 with st.spinner("🤖 AI Expert is analyzing symptoms..."):
                     plant, disease, conf, _ = identify_with_gemini(image)
@@ -212,14 +302,14 @@ def disease_diagnosis_page():
             st.info(res['report'])
             
             recs = get_recommendations(res['disease'])
-            with st.expander("🛒 Marketplace - Direct Purchase Links", expanded=False):
+            with st.expander("🛒 Marketplace - Direct Purchase Links", expanded=True):
                 # Organic Section
                 st.markdown("#### 🌿 Organic Solutions")
                 for o in recs.get('Organic', []):
                     st.write(f"**{o['name']}** ({o['price']}) - {o['dosage']}")
                     cols = st.columns(len(o['marketplaces']))
                     for idx, mk in enumerate(o['marketplaces']):
-                        cols[idx].link_button(f"🛒 Buy on {mk['site']}", mk['link'])
+                        cols[idx].link_button(f"🛒 Buy on {mk['site']}", mk['link'], type="primary" if mk['site'] == 'BigHaat' else 'secondary')
                 
                 # Chemical Section
                 st.markdown("#### 🧪 Chemical Solutions")
@@ -227,7 +317,7 @@ def disease_diagnosis_page():
                     st.write(f"**{c['name']}** ({c['price']}) - {c['dosage']}")
                     cols = st.columns(len(c['marketplaces']))
                     for idx, mk in enumerate(c['marketplaces']):
-                        cols[idx].link_button(f"🛒 Buy on {mk['site']}", mk['link'])
+                        cols[idx].link_button(f"🛒 Buy on {mk['site']}", mk['link'], type="primary" if mk['site'] == 'BigHaat' else 'secondary')
 
                 # Seeds Section
                 if 'Seeds' in recs:
@@ -245,9 +335,12 @@ def disease_diagnosis_page():
                 st.markdown("#### 📍 Local Availability")
                 st.write("Prefer to buy locally?")
                 if st.button("🏪 Find at Nearest Agri-Store"):
-                    top_v = get_nearby_vendors(st.session_state.user_loc.get('lat', 20.5), st.session_state.user_loc.get('lon', 78.5))[0]
+                    vendors, gmaps_link = get_nearby_vendors(st.session_state.user_loc.get('lat', 20.5), st.session_state.user_loc.get('lon', 78.5))
+                    top_v = vendors[0]
                     st.success(f"Recommended Store: **{top_v['name']}** ({top_v['dist']} km away)")
+                    st.write(f"📍 {top_v['address']}")
                     st.link_button(f"Visit Website", top_v['link'])
+                    st.link_button("🗺️ View More on Google Maps", gmaps_link)
 
 def chat_adviser_page():
     st.markdown(f"<h1 class='main-header'>{T['ai_chat_adviser']}</h1>", unsafe_allow_html=True)
@@ -302,11 +395,34 @@ def gov_schemes_page():
     st.info(f"Showing schemes for: **{state}**")
     
     links = get_gov_links(state)
+    
+    # Custom CSS for scheme links
+    st.markdown("""
+        <style>
+        .scheme-link {
+            color: #2E7D32;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 15px;
+            border: 1px solid #2E7D32;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        .scheme-link:hover {
+            background-color: #2E7D32;
+            color: white;
+        }
+        </style>
+    """, unsafe_allow_html=True)
+
     for link in links:
         st.markdown(f"""
         <div class='stCard'>
-            <h4>{link['name']}</h4>
-            <a href="{link['link']}" target="_blank">View Details →</a>
+            <h4 style='color: #1B5E20;'>{link['name']}</h4>
+            <p>Official government portal for farmers.</p>
+            <a href="{link['link']}" target="_blank" class="scheme-link">View Official Site →</a>
         </div>
         """, unsafe_allow_html=True)
 
@@ -315,26 +431,30 @@ def nearby_vendors_page():
     lat = st.session_state.user_loc['lat'] if st.session_state.user_loc else 20.59
     lon = st.session_state.user_loc['lon'] if st.session_state.user_loc else 78.96
     
-    vendors = get_nearby_vendors(lat, lon)
+    vendors, gmaps_search = get_nearby_vendors(lat, lon)
     v_df = pd.DataFrame(vendors)
     
+    st.link_button("🗺️ Open All Nearby Shops in Google Maps", gmaps_search)
+    st.markdown("<br>", unsafe_allow_html=True)
+
     col1, col2 = st.columns([1, 2])
     with col1:
         for v in vendors:
             with st.container():
                 st.markdown(f"""
                 <div class='stCard' style='padding: 15px; margin-bottom: 10px;'>
-                    <h4 style='margin:0;'>{v['name']}</h4>
-                    <p style='margin:5px 0;'>📍 {v['dist']} km away</p>
+                    <h4 style='margin:0; color: #2E7D32;'>{v['name']}</h4>
+                    <p style='margin:5px 0;'><b>📍 {v['dist']} km away</b></p>
+                    <p style='margin:2px 0; font-size: 0.9rem; color: #666;'>{v['address']}</p>
                     <p style='margin:5px 0;'>📞 {v['phone']}</p>
                 </div>
                 """, unsafe_allow_html=True)
                 if v['link'] != "#":
                     st.link_button("Visit Website", v['link'])
     with col2:
-        fig = px.scatter_mapbox(v_df, lat="lat", lon="lon", hover_name="name", zoom=12, height=400)
-        fig.update_layout(mapbox_style="open-street-map", margin={"r":0,"t":0,"l":0,"b":0})
-        st.plotly_chart(fig, use_column_width=True)
+        fig = px.scatter_map(v_df, lat="lat", lon="lon", hover_name="name", zoom=12, height=400)
+        fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+        st.plotly_chart(fig, use_container_width=True)
 
 def weather_forecast_page():
     st.markdown(f"<h1 class='main-header'>{T['weather_forecast']}</h1>", unsafe_allow_html=True)

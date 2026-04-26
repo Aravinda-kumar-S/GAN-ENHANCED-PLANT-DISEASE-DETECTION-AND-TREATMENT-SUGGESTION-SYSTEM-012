@@ -6,7 +6,7 @@ import json
 import os
 
 # --- CONFIGURATION ---
-DATASET_PATH = r"D:/acadamic project/new plant disease/New Plant Diseases Dataset(Augmented)/New Plant Diseases Dataset(Augmented)"
+DATASET_PATH = r"D:\project\new plant disease"
 IMG_SIZE = (224, 224)
 BATCH_SIZE = 32
 EPOCHS = 20

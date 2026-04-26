@@ -265,37 +265,18 @@ TREATMENT_DB = {
         "Disease": "Early Blight (Alternaria solani)",
         "Organic": [
             {
-                "name": "Organic Neem Oil", 
+                "name": "Vanproz V-Kure (Bio-Fungicide)", 
                 "price": "₹450", 
                 "dosage": "5ml per Liter", 
                 "marketplaces": [
-                    {"site": "Amazon", "link": add_utm_params("https://www.amazon.in/s?k=organic+neem+oil+for+plants")},
-                    {"site": "Ugaoo", "link": add_utm_params("https://www.ugaoo.com/search?q=neem+oil")},
-                    {"site": "BigBasket", "link": add_utm_params("https://www.bigbasket.com/ps/?q=neem+oil")}
-                ]
-            },
-            {
-                "name": "Trichoderma Viride (Bio-Fungicide)", 
-                "price": "₹280", 
-                "dosage": "10g per Liter", 
-                "marketplaces": [
-                    {"site": "AgroStar", "link": add_utm_params("https://www.agrostar.in/search?q=trichoderma")},
-                    {"site": "BigHaat", "link": add_utm_params("https://www.bighaat.com/search?q=trichoderma")}
+                    {"site": "BigHaat", "link": add_utm_params("https://www.bighaat.com/products/vanproz-v-kure-bio-fungicide-and-bactericide")},
+                    {"site": "Amazon", "link": add_utm_params("https://www.amazon.in/s?k=v-kure+fungicide")}
                 ]
             }
         ],
         "Chemical": [
             {
-                "name": "Mancozeb 75% WP", 
-                "price": "₹550", 
-                "dosage": "2.5g per Liter", 
-                "marketplaces": [
-                    {"site": "Flipkart", "link": add_utm_params("https://www.flipkart.com/search?q=mancozeb")},
-                    {"site": "DeHaat", "link": add_utm_params("https://www.dehaat.com/search?q=mancozeb")}
-                ]
-            },
-            {
-                "name": "Amistar Top (Syngenta)", 
+                "name": "Syngenta Amistar Top", 
                 "price": "₹1250", 
                 "dosage": "1ml per Liter", 
                 "marketplaces": [
@@ -306,19 +287,16 @@ TREATMENT_DB = {
         ],
         "Seeds": [
             {
-                "name": "Resistant Tomato Seeds (Hybrid)",
+                "name": "Syngenta 1057 (Resistant Variety)",
                 "price": "₹150",
                 "marketplaces": [
-                    {"site": "Amazon", "link": add_utm_params("https://www.amazon.in/s?k=hybrid+tomato+seeds+resistant")},
-                    {"site": "Ugaoo", "link": add_utm_params("https://www.ugaoo.com/collections/tomato-seeds")}
+                    {"site": "BigHaat", "link": add_utm_params("https://www.bighaat.com/search?q=syngenta+1057+tomato")}
                 ]
             }
         ],
         "Remedies": "Prune lower leaves. Improve soil drainage.",
-        "DosageMethod": "Spray thoroughly on both surfaces.",
         "Prevention": "Crop rotation. Use certified seeds.",
-        "Management": "Staking plants. Avoid overhead irrigation.",
-        "Safety": "Handle with gloves. PHI: 7 days.",
+        "Safety": "PHI: 7 days. Handle with care.",
         "PHI": "7 Days"
     },
     "Potato Late Blight": {
@@ -326,53 +304,186 @@ TREATMENT_DB = {
         "Disease": "Late Blight",
         "Organic": [
             {
-                "name": "Copper Oxychloride (Organic Opt)", 
+                "name": "Copper Oxychloride (Bio-Opt)", 
                 "price": "₹350", 
                 "dosage": "3g/L", 
                 "marketplaces": [
-                    {"site": "Amazon", "link": add_utm_params("https://www.amazon.in/s?k=copper+oxychloride")},
-                    {"site": "Flipkart", "link": add_utm_params("https://www.flipkart.com/search?q=copper+oxychloride")},
-                    {"site": "BigBasket", "link": add_utm_params("https://www.bigbasket.com/ps/?q=fungicide")}
+                    {"site": "Amazon", "link": add_utm_params("https://www.amazon.in/s?k=copper+oxychloride+for+plants")},
+                    {"site": "BigHaat", "link": add_utm_params("https://www.bighaat.com/search?q=copper+oxychloride")}
                 ]
             }
         ],
         "Chemical": [
             {
-                "name": "Ridomil Gold", 
+                "name": "Ridomil Gold (Syngenta)", 
                 "price": "₹850", 
                 "dosage": "2g/L", 
                 "marketplaces": [
                     {"site": "BigHaat", "link": add_utm_params("https://www.bighaat.com/search?q=ridomil+gold")},
-                    {"site": "AgroStar", "link": add_utm_params("https://www.agrostar.in/search?q=ridomil+gold")},
-                    {"site": "DeHaat", "link": add_utm_params("https://www.dehaat.com/search?q=ridomil+gold")}
+                    {"site": "AgroStar", "link": add_utm_params("https://www.agrostar.in/search?q=ridomil+gold")}
                 ]
             }
         ],
-        "Remedies": "Destruction of cull piles.",
-        "Prevention": "Resistant varieties.",
+        "Remedies": "Destruction of cull piles. Avoid excessive nitrogen.",
+        "Prevention": "Use certified disease-free tubers.",
         "Safety": "PHI: 14 days.",
         "PHI": "14 Days"
+    },
+    "Apple Scab": {
+        "Plant": "Apple",
+        "Disease": "Apple Scab (Venturia inaequalis)",
+        "Organic": [
+            {"name": "Sulfur Fungicide", "price": "₹400", "dosage": "3g/L", "marketplaces": [{"site": "Amazon", "link": add_utm_params("https://www.amazon.in/s?k=sulfur+fungicide+for+plants")}]}
+        ],
+        "Chemical": [
+            {"name": "Captan 50% WP", "price": "₹600", "dosage": "2.5g/L", "marketplaces": [{"site": "BigHaat", "link": add_utm_params("https://www.bighaat.com/search?q=captan")}]}
+        ],
+        "Prevention": "Prune for airflow. Remove fallen leaves.",
+        "Safety": "Standard safety precautions. PHI: 10 days."
+    },
+    "Tomato Yellow Leaf Curl": {
+        "Plant": "Tomato",
+        "Disease": "Yellow Leaf Curl Virus (TYLCV)",
+        "Organic": [
+            {"name": "Yellow Sticky Traps", "price": "₹120", "dosage": "10-15 per acre", "marketplaces": [{"site": "Amazon", "link": add_utm_params("https://www.amazon.in/s?k=yellow+sticky+traps+for+plants")}]},
+            {"name": "Neem Oil 10000 PPM", "price": "₹650", "dosage": "2ml/L", "marketplaces": [{"site": "BigHaat", "link": add_utm_params("https://www.bighaat.com/search?q=neem+oil+10000+ppm")}]}
+        ],
+        "Chemical": [
+            {"name": "Imidacloprid (for Whitefly)", "price": "₹450", "dosage": "0.5ml/L", "marketplaces": [{"site": "Flipkart", "link": add_utm_params("https://www.flipkart.com/search?q=imidacloprid")}]}
+        ],
+        "Prevention": "Control whitefly vector. Use silver plastic mulch.",
+        "Safety": "Very high toxicity to bees. Spray in late evening."
+    },
+    "Grape Black Rot": {
+        "Plant": "Grape",
+        "Disease": "Black Rot (Guignardia bidwellii)",
+        "Organic": [
+            {"name": "Bordeaux Mixture", "price": "₹300", "dosage": "1% solution", "marketplaces": [{"site": "BigHaat", "link": add_utm_params("https://www.bighaat.com/search?q=bordeaux+mixture")}]}
+        ],
+        "Chemical": [
+            {"name": "Mancozeb 75% WP", "price": "₹550", "dosage": "2g/L", "marketplaces": [{"site": "AgroStar", "link": add_utm_params("https://www.agrostar.in/search?q=mancozeb")}]}
+        ],
+        "Prevention": "Sanitation is key. Remove mummified berries.",
+        "Safety": "PHI: 30 days for grapes."
+    },
+    "Corn Northern Leaf Blight": {
+        "Plant": "Corn (Maize)",
+        "Disease": "Northern Leaf Blight",
+        "Organic": [
+            {"name": "Trichoderma Viride", "price": "₹280", "dosage": "10g/L", "marketplaces": [{"site": "BigHaat", "link": add_utm_params("https://www.bighaat.com/search?q=trichoderma")}]}
+        ],
+        "Chemical": [
+            {"name": "Amistar Top (Azoxystrobin + Difenoconazole)", "price": "₹1250", "dosage": "1ml/L", "marketplaces": [{"site": "BigHaat", "link": add_utm_params("https://www.bighaat.com/search?q=amistar+top")}]},
+            {"name": "Custodia (UPL)", "price": "₹950", "dosage": "1.5ml/L", "marketplaces": [{"site": "AgroStar", "link": add_utm_params("https://www.agrostar.in/search?q=custodia")}]}
+        ],
+        "Prevention": "Crop rotation with non-host crops. Use resistant hybrids.",
+        "Safety": "Standard precautions. PHI: 20 days."
+    },
+    "Peach Bacterial Spot": {
+        "Plant": "Peach",
+        "Disease": "Bacterial Spot (Xanthomonas arboricola)",
+        "Organic": [
+            {"name": "Copper Oxychloride", "price": "₹350", "dosage": "2.5g/L", "marketplaces": [{"site": "Amazon", "link": add_utm_params("https://www.amazon.in/s?k=copper+oxychloride+for+plants")}]}
+        ],
+        "Chemical": [
+            {"name": "Streptocycline (Bactericide)", "price": "₹150", "dosage": "6g in 60L water", "marketplaces": [{"site": "BigHaat", "link": add_utm_params("https://www.bighaat.com/search?q=streptocycline")}]}
+        ],
+        "Prevention": "Avoid high nitrogen fertilizers. Prune for air circulation.",
+        "Safety": "Bactericide handled with care. PHI: 14 days."
+    },
+    "Pepper Bacterial Spot": {
+        "Plant": "Pepper/Chilli",
+        "Disease": "Bacterial Spot",
+        "Organic": [
+            {"name": "Neem Oil + Copper", "price": "₹500", "dosage": "5ml + 2g per Liter", "marketplaces": [{"site": "Amazon", "link": add_utm_params("https://www.amazon.in/s?k=neem+oil+fungicide+combo")}]}
+        ],
+        "Chemical": [
+            {"name": "Kocide (Copper Hydroxide)", "price": "₹700", "dosage": "2g/L", "marketplaces": [{"site": "BigHaat", "link": add_utm_params("https://www.bighaat.com/search?q=kocide")}]}
+        ],
+        "Prevention": "Use certified seeds. Avoid overhead irrigation.",
+        "Safety": "Wear gloves. PHI: 7 days."
+    },
+    "Strawberry Leaf Scorch": {
+        "Plant": "Strawberry",
+        "Disease": "Leaf Scorch (Diplocarpon earlianum)",
+        "Organic": [
+            {"name": "Potassium Bicarbonate", "price": "₹320", "dosage": "5g/L", "marketplaces": [{"site": "Amazon", "link": add_utm_params("https://www.amazon.in/s?k=potassium+bicarbonate+for+plants")}]}
+        ],
+        "Chemical": [
+            {"name": "Carbendazim 50% WP", "price": "₹380", "dosage": "2g/L", "marketplaces": [{"site": "BigHaat", "link": add_utm_params("https://www.bighaat.com/search?q=carbendazim")}]}
+        ],
+        "Prevention": "Plant in well-drained soil. Remove old leaves after harvest.",
+        "Safety": "PHI: 14 days."
+    },
+    "Tomato Septoria Leaf Spot": {
+        "Plant": "Tomato",
+        "Disease": "Septoria Leaf Spot",
+        "Organic": [
+            {"name": "Baking Soda Spray", "price": "₹50", "dosage": "1 tsp in 1L water", "marketplaces": [{"site": "Amazon", "link": add_utm_params("https://www.amazon.in/s?k=baking+soda")}]}
+        ],
+        "Chemical": [
+            {"name": "Chlorothalonil (Kavach)", "price": "₹600", "dosage": "2g/L", "marketplaces": [{"site": "AgroStar", "link": add_utm_params("https://www.agrostar.in/search?q=kavach")}]}
+        ],
+        "Prevention": "Mulch to prevent soil splash. Prune lower branches.",
+        "Safety": "PHI: 7 days."
+    },
+    "Orange Citrus Greening": {
+        "Plant": "Orange/Citrus",
+        "Disease": "Huanglongbing (Citrus Greening)",
+        "Organic": [
+            {"name": "Nutritional Spray (Zinc + Iron)", "price": "₹450", "dosage": "As per pack", "marketplaces": [{"site": "Amazon", "link": add_utm_params("https://www.amazon.in/s?k=citrus+micronutrient+fertilizer")}]}
+        ],
+        "Chemical": [
+            {"name": "Confidor (Imidacloprid) for ACP Control", "price": "₹550", "dosage": "0.5ml/L", "marketplaces": [{"site": "BigHaat", "link": add_utm_params("https://www.bighaat.com/search?q=confidor")}]}
+        ],
+        "Prevention": "No known cure. Control psyllids and remove infected trees.",
+        "Safety": "High toxicity to pollinators. PHI: 15 days."
     }
 }
 
 GOV_LINKS_DB = {
     "Default": [
-        {"name": "PM Kisan Samman Nidhi", "link": "https://pmkisan.gov.in/"},
+        {"name": "PM Kisan Samman Nidhi (Income Support)", "link": "https://pmkisan.gov.in/"},
+        {"name": "PM Fasal Bima Yojana (Crop Insurance)", "link": "https://pmfby.gov.in/"},
         {"name": "National Agriculture Market (eNAM)", "link": "https://www.enam.gov.in/"},
-        {"name": "Soil Health Card Scheme", "link": "https://soilhealth.dac.gov.in/"}
+        {"name": "Soil Health Card Scheme", "link": "https://soilhealth.dac.gov.in/"},
+        {"name": "Kisan Credit Card (KCC) Portal", "link": "https://www.kcc.gov.in/"}
     ],
     "Tamil Nadu": [
-        {"name": "TNAU Agriportal", "link": "https://agritech.tnau.ac.in/"},
+        {"name": "TNAU Agritech Portal", "link": "https://agritech.tnau.ac.in/"},
         {"name": "TN Agriculture Department", "link": "https://www.agriculture.tn.gov.in/"},
-        {"name": "Uzhavan App Portal", "link": "https://www.tntagrisnet.tn.gov.in/uzhavan/"}
+        {"name": "Uzhavan App Services", "link": "https://www.tntagrisnet.tn.gov.in/uzhavan/"}
     ],
     "Maharashtra": [
-        {"name": "MahaAgri Portal", "link": "https://krishi.maharashtra.gov.in/"},
-        {"name": "Agri-Business & Rural Transformation (SMART)", "link": "https://www.smart-mh.org/"}
+        {"name": "MahaAgri Official Portal", "link": "https://krishi.maharashtra.gov.in/"},
+        {"name": "Aaple Sarkar DBT Portal", "link": "https://mahadbt.maharashtra.gov.in/"},
+        {"name": "SMART Project (Agri-Business)", "link": "https://www.smart-mh.org/"}
     ],
     "Uttar Pradesh": [
-        {"name": "UP Agriculture Department", "link": "https://upagriculture.com/"},
-        {"name": "UP Seeds Development", "link": "https://upsdc.gov.in/"}
+        {"name": "UP Agriculture Department (Direct)", "link": "https://upagriculture.com/"},
+        {"name": "UP Seeds Development Corporation", "link": "https://upsdc.gov.in/"},
+        {"name": "Pardarshi Kisan Seva Yojana", "link": "http://upagriculture.com/Default.aspx"}
+    ],
+    "Karnataka": [
+        {"name": "Raitamitra (Official Farmer Portal)", "link": "https://raitamitra.karnataka.gov.in/"},
+        {"name": "K-Agri Input Portal", "link": "https://ka-agri.karnataka.gov.in/"},
+        {"name": "Fruit-Soft (Farmer Registration)", "link": "https://fruits.karnataka.gov.in/"}
+    ],
+    "Punjab": [
+        {"name": "Punjab Agri Portal (Direct)", "link": "https://agri.punjab.gov.in/"},
+        {"name": "PAU Farmer Advisory", "link": "https://www.pau.edu/"}
+    ],
+    "Gujarat": [
+        {"name": "i-Khedut Portal (Direct Subsidy)", "link": "https://ikhedut.gujarat.gov.in/"},
+        {"name": "Gujarat Agri Department", "link": "https://agri.gujarat.gov.in/"}
+    ],
+    "West Bengal": [
+        {"name": "Matir Katha (Integrated Portal)", "link": "https://matirkatha.gov.in/"},
+        {"name": "WB Agriculture (Direct)", "link": "https://wb.gov.in/department-details.aspx?id=1"}
+    ],
+    "Andhra Pradesh": [
+        {"name": "AP Agriculture Official", "link": "https://apagri.gov.in/"},
+        {"name": "YSR Rythu Bharosa (Direct)", "link": "https://ysrrythubharosa.ap.gov.in/"}
     ]
 }
 
@@ -472,40 +583,48 @@ def get_recommendations(disease_name, growth_stage="Vegetative", weather=None):
     return recs
 
 def get_nearby_vendors(lat, lon, radius_km=25):
-    """Mock Geospatial logic to find vendors with clickable contact info."""
+    """Mock Geospatial logic with real Google Maps search fallback."""
     vendors = [
         {
-            "name": "Agro-Care Center", 
+            "name": "Agro-Care Center (Verified)", 
             "dist": 1.2, 
-            "lat": lat + 0.01, 
-            "lon": lon + 0.01,
-            "link": add_utm_params("https://www.agrocarecenter.com/"),
-            "phone": "+91 98765 43210"
+            "lat": lat + 0.008, 
+            "lon": lon + 0.005,
+            "link": "https://www.agrocarecenter.com/",
+            "phone": "+91 98765 43210",
+            "address": "Main Market Road, Agri Hub"
         },
         {
-            "name": "Farmers Friend Store", 
+            "name": "Farmers Friend Input Store", 
             "dist": 3.5, 
-            "lat": lat - 0.02, 
-            "lon": lon + 0.01,
+            "lat": lat - 0.015, 
+            "lon": lon + 0.008,
             "link": "#",
-            "phone": "+91 87654 32109"
+            "phone": "+91 87654 32109",
+            "address": "Opposite Panchayat Office"
         },
         {
-            "name": "Precision Seeds Ltd", 
+            "name": "Precision Seeds & Pesticides", 
             "dist": 5.8, 
-            "lat": lat + 0.03, 
-            "lon": lon - 0.02,
-            "link": add_utm_params("https://www.precisionseeds.in/"),
-            "phone": "+91 76543 21098"
+            "lat": lat + 0.02, 
+            "lon": lon - 0.015,
+            "link": "https://www.precisionseeds.in/",
+            "phone": "+91 76543 21098",
+            "address": "Old Highway Junction"
         },
         {
-            "name": "Village Agri Hub", 
+            "name": "Village Cooperative Society", 
             "dist": 12.4, 
-            "lat": lat - 0.05, 
-            "lon": lon - 0.04,
+            "lat": lat - 0.035, 
+            "lon": lon - 0.025,
             "link": "#",
-            "phone": "+91 65432 10987"
+            "phone": "+91 65432 10987",
+            "address": "Village Center"
         },
     ]
-    return vendors
+    
+    # Add Google Maps Search link for 100% accurate local discovery
+    gmaps_search = f"https://www.google.com/maps/search/pesticide+seeds+fertilizer+shop/@{lat},{lon},14z"
+    
+    return vendors, gmaps_search
 
