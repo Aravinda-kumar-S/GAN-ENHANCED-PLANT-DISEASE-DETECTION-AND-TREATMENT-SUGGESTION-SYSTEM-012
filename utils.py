@@ -1,4 +1,4 @@
-import google.generativeai as genai
+from google import genai
 import requests
 import streamlit as st
 from PIL import Image
@@ -24,26 +24,23 @@ Rules:
 5. Consider the provided weather context in your advice (e.g., "Don't spray today because rain is expected").
 """
 
-def get_gemini_config():
-    """Load API key from Streamlit secrets and force V1 API"""
+def get_gemini_client():
+    """Initialize the new Gemini GenAI Client."""
     try:
         api_key = st.secrets["GEMINI_API_KEY"]
-        # Explicitly setting version to v1 to avoid v1beta issues
-        genai.configure(api_key=api_key)
-        return True
+        return genai.Client(api_key=api_key)
     except Exception as e:
         st.error("⚠️ Gemini API Key missing or invalid in .streamlit/secrets.toml")
-        return False
+        return None
 
 def get_ai_explanation(image, predicted_disease, confidence, weather_info=None):
     """
     Generate an explanation using Gemini Vision Pro (or similar).
     """
-    if not get_gemini_config():
+    client = get_gemini_client()
+    if not client:
         return "AI Explanation unavailable (Missing Key)."
 
-    model = genai.GenerativeModel('gemini-flash-latest')
-    
     weather_context = f"Current Weather: {weather_info}" if weather_info else "Weather data unavailable."
     
     prompt = f"""
@@ -96,7 +93,10 @@ def get_ai_explanation(image, predicted_disease, confidence, weather_info=None):
     """
     
     try:
-        response = model.generate_content([prompt, image])
+        response = client.models.generate_content(
+            model='gemini-2.0-flash', 
+            contents=[prompt, image]
+        )
         return response.text
     except Exception as e:
         return f"Error generating explanation: {str(e)}"
@@ -105,10 +105,9 @@ def identify_with_gemini(image):
     """
     Pure Gemini-based identification for when local model is unavailable or uncertain.
     """
-    if not get_gemini_config():
+    client = get_gemini_client()
+    if not client:
         return "Unknown Plant", "Analysis Failed", 0.0, "API Key Missing"
-
-    model = genai.GenerativeModel('gemini-flash-latest')
     
     prompt = """
     Analyze this image strictly. Identify the plant and disease.
@@ -126,7 +125,10 @@ def identify_with_gemini(image):
         if image.mode != 'RGB':
             image = image.convert('RGB')
         
-        response = model.generate_content([prompt, image])
+        response = client.models.generate_content(
+            model='gemini-2.0-flash',
+            contents=[prompt, image]
+        )
         text = response.text
         
         # Method 1: Clean JSON Parsing
@@ -164,24 +166,27 @@ def get_ai_chat_response(messages, audio_bytes=None, context=""):
     """
     Chat with the Agri-Adviser.
     """
-    if not get_gemini_config():
+    client = get_gemini_client()
+    if not client:
         return "I need an API key to think!"
         
-    model = genai.GenerativeModel('gemini-flash-latest')
-    
     user_input = messages[-1]['content'] if not audio_bytes else "The user provided an audio message. Please transcribe and answer."
     full_prompt = f"{SYSTEM_PROMPT}\n\nContext: {context}\n\nUser Question: {user_input}"
     
     try:
         if audio_bytes:
-            # Prepare audio part for Gemini
-            audio_blob = {
-                "mime_type": "audio/wav", # streamli-mic-recorder usually outputs wav or similar
-                "data": audio_bytes
-            }
-            response = model.generate_content([full_prompt, audio_blob])
+            # Prepare audio part for Gemini (New SDK format)
+            from google.genai import types
+            audio_part = types.Part.from_bytes(data=audio_bytes, mime_type="audio/wav")
+            response = client.models.generate_content(
+                model='gemini-2.0-flash',
+                contents=[full_prompt, audio_part]
+            )
         else:
-            response = model.generate_content(full_prompt)
+            response = client.models.generate_content(
+                model='gemini-2.0-flash',
+                contents=full_prompt
+            )
         return response.text
     except Exception as e:
         return f"Sorry, I'm having trouble: {str(e)}"
