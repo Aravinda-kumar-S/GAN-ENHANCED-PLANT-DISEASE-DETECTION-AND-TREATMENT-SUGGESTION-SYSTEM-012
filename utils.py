@@ -49,47 +49,29 @@ def get_ai_explanation(image, predicted_disease, confidence, weather_info=None):
     Given:
     Disease Name: {predicted_disease}
     Confidence Score: {confidence*100:.1f}%
-    Observed Symptoms: Please analyze the visual symptoms in the provided image.
     Environmental Conditions: {weather_context}
 
     Generate a structured agricultural diagnosis and treatment recommendation.
+    Analyze the visual symptoms in the provided image accurately based on the plant disease.
 
     Follow this exact output format:
 
-    Disease Name:
-    Confidence Score:
+    • Disease name: 
+    • Symptoms: 
+    • Confidence percentage: 
+    • Environmental impact: 
 
-    Analysis Result:
-
-    Recommended Treatments:
-
-    1. Chemical Option
-       - Name:
-       - Variant:
-       - Dosage:
-       - Benefits:
-       - Safety:
-       - Application Method:
-
-    2. Organic Option
-       - Name:
-       - Variant:
-       - Dosage:
-       - Benefits:
-       - Safety:
-
-    Preventive Care:
-
-    Monitoring Advice:
+    **Solutions Provided:**
+    • Organic treatments: 
+    • Chemical pesticides: 
+    • Resistant seeds: 
+    • Precautions: 
 
     Guidelines:
-    - Provide realistic agricultural treatments.
-    - Include correct dosage.
-    - Include safety precautions.
-    - Keep explanation clear and farmer-friendly.
-    - Avoid unnecessary medical disclaimers.
-    - Do not include extra sections.
-    - Maintain structured formatting.
+    - Provide accurate and specific treatments, pesticides, and precautions.
+    - Include correct dosage for pesticides where applicable.
+    - Keep the explanation clear and farmer-friendly.
+    - Maintain this exact bulleted structure.
     """
     
     try:
