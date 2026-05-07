@@ -203,15 +203,18 @@ def fetch_precise_location():
     if not st.session_state.user_loc:
         with st.sidebar:
             st.write("📍 Detecting Location...")
-            loc = get_geolocation()
-            if loc:
-                st.session_state.user_loc = {
-                    "lat": loc['coords']['latitude'],
-                    "lon": loc['coords']['longitude'],
-                    "state": get_state_from_coords(loc['coords']['latitude'], loc['coords']['longitude']),
-                    "zone": get_climate_zone(loc['coords']['latitude'], loc['coords']['longitude'])
-                }
-                st.success(f"Location Verified: {st.session_state.user_loc['state']}")
+            try:
+                loc = get_geolocation()
+                if loc and 'coords' in loc:
+                    st.session_state.user_loc = {
+                        "lat": loc['coords']['latitude'],
+                        "lon": loc['coords']['longitude'],
+                        "state": get_state_from_coords(loc['coords']['latitude'], loc['coords']['longitude']),
+                        "zone": get_climate_zone(loc['coords']['latitude'], loc['coords']['longitude'])
+                    }
+                    st.success(f"Location Verified: {st.session_state.user_loc['state']}")
+            except Exception as e:
+                st.error(f"Could not fetch location: {e}")
 
 fetch_precise_location()
 
@@ -258,7 +261,7 @@ def home_page():
     with col3:
         st.markdown(f"<div class='stCard'><h3>📜 {T['gov_schemes']}</h3><p>Access location-filtered subsidies.</p></div>", unsafe_allow_html=True)
 
-    st.image("https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=1000", use_container_width=True)
+    st.image("https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=1000", use_column_width=True)
 
 def disease_diagnosis_page():
     st.markdown(f"<h1 class='main-header'>{T['disease_diagnosis']}</h1>", unsafe_allow_html=True)
@@ -271,9 +274,9 @@ def disease_diagnosis_page():
         
         if img_file:
             image = Image.open(img_file)
-            st.image(image, use_container_width=True)
+            st.image(image, use_column_width=True)
             if st.button(T['analyze']):
-                with st.spinner("🤖 AI Expert is analyzing symptoms..."):
+                with st.spinner("🤖 Expert is analyzing symptoms..."):
                     plant, disease, conf, _ = identify_with_gemini(image)
                     
                     # Get environmental context for the AI
@@ -453,7 +456,7 @@ def nearby_vendors_page():
     with col2:
         fig = px.scatter_map(v_df, lat="lat", lon="lon", hover_name="name", zoom=12, height=400)
         fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
 def weather_forecast_page():
     st.markdown(f"<h1 class='main-header'>{T['weather_forecast']}</h1>", unsafe_allow_html=True)
