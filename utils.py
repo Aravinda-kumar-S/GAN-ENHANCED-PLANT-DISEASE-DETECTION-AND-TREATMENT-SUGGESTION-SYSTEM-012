@@ -99,7 +99,10 @@ def get_ai_explanation(image, predicted_disease, confidence, weather_info=None):
         )
         return response.text
     except Exception as e:
-        return f"Error generating explanation: {str(e)}"
+        error_msg = str(e)
+        if "429" in error_msg or "RESOURCE_EXHAUSTED" in error_msg or "quota" in error_msg.lower():
+            return "⚠️ AI Service is busy (Rate Limit Exceeded). Please wait a minute and try again."
+        return f"Error generating explanation: {error_msg}"
 
 def identify_with_gemini(image):
     """
@@ -159,7 +162,10 @@ def identify_with_gemini(image):
             return plant, full_diagnosis, conf, text
 
     except Exception as e:
-        return "Error", "API Error", 0.0, f"System Error: {str(e)}"
+        error_msg = str(e)
+        if "429" in error_msg or "RESOURCE_EXHAUSTED" in error_msg or "quota" in error_msg.lower():
+            return "Unknown", "API Limit Reached", 0.0, "⚠️ The AI service is currently busy (Rate Limit Exceeded). Please try again in a minute."
+        return "Error", "API Error", 0.0, f"System Error: {error_msg}"
 
 
 def get_ai_chat_response(messages, audio_bytes=None, context=""):
@@ -189,7 +195,10 @@ def get_ai_chat_response(messages, audio_bytes=None, context=""):
             )
         return response.text
     except Exception as e:
-        return f"Sorry, I'm having trouble: {str(e)}"
+        error_msg = str(e)
+        if "429" in error_msg or "RESOURCE_EXHAUSTED" in error_msg or "quota" in error_msg.lower():
+            return "⚠️ I'm receiving too many requests right now (Rate Limit Exceeded). Please wait a moment and try again!"
+        return f"Sorry, I'm having trouble: {error_msg}"
 
 def add_utm_params(url):
     """Appends referral tracking (UTM) parameters to external links."""

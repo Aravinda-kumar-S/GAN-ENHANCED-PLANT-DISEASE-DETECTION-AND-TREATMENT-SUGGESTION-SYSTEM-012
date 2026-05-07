@@ -261,7 +261,7 @@ def home_page():
     with col3:
         st.markdown(f"<div class='stCard'><h3>📜 {T['gov_schemes']}</h3><p>Access location-filtered subsidies.</p></div>", unsafe_allow_html=True)
 
-    st.image("https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=1000", use_column_width=True)
+    st.image("https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=1000")
 
 def disease_diagnosis_page():
     st.markdown(f"<h1 class='main-header'>{T['disease_diagnosis']}</h1>", unsafe_allow_html=True)
@@ -274,7 +274,7 @@ def disease_diagnosis_page():
         
         if img_file:
             image = Image.open(img_file)
-            st.image(image, use_column_width=True)
+            st.image(image)
             if st.button(T['analyze']):
                 with st.spinner("🤖 Expert is analyzing symptoms..."):
                     plant, disease, conf, _ = identify_with_gemini(image)
